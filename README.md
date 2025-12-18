@@ -4,7 +4,7 @@
 ## A Data-Driven Framework for Greenlighting Decisions
 
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue)](#)
-[![Notebook](https://img.shields.io/badge/Format-Jupyter%20Notebook-orange)](#)
+[![Notebook](https://img.shields.io/badge/Format-Collab%20Notebook-orange)](#)
 [![Status](https://img.shields.io/badge/Project-Completed-success)](#)
 
 ---
@@ -116,10 +116,6 @@ After cleaning:
 
 - Date range: 1916–2016
 
-**Figure 1 (final):** cleaned data distribution + context
-
-*Caption:* Figure 1 shows the core distributions we rely on throughout the project: budgets and revenues are heavily right-skewed; revenue rises with budget but with wide variance; runtimes cluster around ~90–120 minutes.
-
 ### Feature Engineering
 Raw metadata rarely becomes predictive without transformation. We engineer features that map to executive levers and industry intuition.
 
@@ -175,21 +171,22 @@ Before training models, we ask: what actually separates hits from non-hits?
 
 **1) Hit vs Non-Hit distribution**
 
-**Figure 2 (final):** class balance
 
-*Caption:* Figure 2 highlights the baseline: hits are the minority class (~35%). This matters for evaluation because accuracy alone can be misleading; we care about precision/recall tradeoffs depending on business context.
+<img width="1790" height="490" alt="hit-vs-non-hit" src="https://github.com/user-attachments/assets/4f21c418-2100-4b2b-bb55-16250f6818ef" />
+
+Figure 1 highlights the baseline: hits are the minority class (~35%). This matters for evaluation because accuracy alone can be misleading; we care about precision/recall tradeoffs depending on business context.
 
 **2) Hit patterns across budget, studio backing, season, and genre**
 
-**Figure 3 (final):** hit rates by key categories
+<img width="1589" height="1189" alt="hit-key-categories" src="https://github.com/user-attachments/assets/4554a712-671d-4df5-91db-2391e87335a3" />
 
-*Caption:* Figure 3 makes the business story visible: certain categories (big budgets, big studios, summer releases, and some genres) dramatically shift hit probability.
+Figure 2 makes the business story visible: certain categories (big budgets, big studios, summer releases, and some genres) dramatically shift hit probability.
 
 **3) Hits vs non-hits across continuous features**
 
-**Figure 4 (final):** boxplot comparison
+<img width="1790" height="975" alt="box-plot" src="https://github.com/user-attachments/assets/02475e30-8751-4bae-b399-066905a142e3" />
 
-*Caption:* Figure 4 shows where separation is strongest. Budget and director track record stand out clearly; runtime is much less discriminative.
+Figure 3 shows where separation is strongest. Budget and director track record stand out clearly; runtime is much less discriminative.
 
 ---
 
@@ -275,40 +272,43 @@ We evaluate regression using:
 ---
 
 ## Evaluation and Results
-**Important:** Paste your final tuned metrics here (from the notebook runs you consider "final").
-The README is structured so you can update values without rewriting sections.
 
 ### Classification (Hit Prediction) — Final Model
-**Best model:** [PASTE MODEL NAME HERE]
+**Best model:** LightGBM Classifier
 
-- **ROC-AUC (test):** [PASTE VALUE]
+- **ROC-AUC (test):** 0.9762
 
-- **Accuracy (test):** [PASTE VALUE]
+- **Accuracy (test):** 90.21%
 
-- **Precision (hit class):** [PASTE VALUE]
+- **Precision (hit class):** 84.49%
 
-- **Recall (hit class):** [PASTE VALUE]
+- **Recall (hit class):** 95.83%
 
-**Figure 5 (final):** ROC curve
+**ROC Curves**
 
-**Figure 6 (final):** Confusion matrix
+<img width="803" height="487" alt="ROC" src="https://github.com/user-attachments/assets/db1fd2d1-05cc-423b-8ec5-a94f1ca5d6dd" />
+
+
+**Confusion Matrices**
+<img width="1355" height="1189" alt="confusionmatrix" src="https://github.com/user-attachments/assets/8a16281d-d43c-4131-af75-4005e59d5541" />
 
 ### Regression (Revenue Forecast) — Final Model
-**Best model:** [PASTE MODEL NAME HERE]
+**Best model:** XGBoost Regressor
 
-- **MAE (test):** [PASTE VALUE]
+- **MAE (test):** $65.4M (original scale) / 0.4981 (log scale)
 
-- **RMSE (test):** [PASTE VALUE]
+- **RMSE (test):** 0.7471 (log scale)
 
-- **R² (test):** [PASTE VALUE]
+- **R² (test):** 0.8577
 
-**Figure 7 (final):** Predicted vs actual revenue
+**Predicted VS Actual Revenue**
+<img width="1590" height="590" alt="predictedvsactual" src="https://github.com/user-attachments/assets/4cf279c7-a541-4f30-8fb2-66f998e53fb5" />
 
-### Executive Summary (Final Results Snapshot)
+### Executive Summary
 | Component | Output | Final Choice | Key Metric (Test) |
 |-----------|--------|--------------|-------------------|
-| Hit classifier | P(hit ≥ $100M) | [MODEL] | ROC-AUC: [X.XX] |
-| Revenue regressor | Expected revenue | [MODEL] | MAE: [X], R²: [X] |
+| Hit classifier | P(hit ≥ $100M) | LightGBM | ROC-AUC: 0.9762 |
+| Revenue regressor | Expected revenue | XGBoost Regressor | MAE: $65.4M, R²: 0.858 |
 
 ---
 
@@ -365,22 +365,6 @@ Open and run:
 
 - `notebooks/movie_hit_prediction_complete.ipynb`
 
-**4) Export final figures for the README**
-
-Save figures to:
-
-```text
-figures/
-  fig_01_core_distributions.png
-  fig_02_class_distribution.png
-  fig_03_hit_rates_by_category.png
-  fig_04_hits_vs_nonhits_boxplots.png
-  fig_05_roc_curve.png
-  fig_06_confusion_matrix.png
-  fig_07_pred_vs_actual.png
-```
-Once those files exist, GitHub will render every figure inline automatically.
-
 ---
 
 ## Repository Structure
@@ -388,11 +372,10 @@ Once those files exist, GitHub will render every figure inline automatically.
 ├── data/
 │   ├── raw/                      # Original TMDB CSV files
 │   └── processed/                # Cleaned, model-ready dataset
-├── figures/                       # Final exported figures used in README
 ├── notebooks/
 │   └── movie_hit_prediction_complete.ipynb
 ├── README.md
-└── requirements.txt               # (recommended) pinned dependencies
+└── requirements.txt               
 ```
 
 ---
