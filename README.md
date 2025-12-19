@@ -25,6 +25,10 @@ authors: Saad Iftikhar, Talal Naveed, Ahmed Arkam Mohamed Faisaar
 - [Conclusion](#conclusion)
 
 ---
+## Project Structure:
+
+![alt text](image.png)
+
 
 ## Project Overview
 
