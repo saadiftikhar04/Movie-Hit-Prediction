@@ -2,11 +2,6 @@
 
 # 🎬 Movie Hit Prediction
 ## A Data-Driven Framework for Greenlighting Decisions
-
-[![Python](https://img.shields.io/badge/Python-3.9%2B-blue)](#)
-[![Notebook](https://img.shields.io/badge/Format-Collab%20Notebook-orange)](#)
-[![Status](https://img.shields.io/badge/Project-Completed-success)](#)
-
 ---
 
 ## Table of Contents
