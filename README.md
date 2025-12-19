@@ -27,7 +27,7 @@ authors: Saad Iftikhar, Talal Naveed, Ahmed Arkam Mohamed Faisaar
 ---
 ## Project Structure:
 
-![alt text](image.png)
+<img width="1088" height="441" alt="image" src="https://github.com/user-attachments/assets/39f316ed-0647-457e-9079-5c49f4af5353" />
 
 
 ## Project Overview
