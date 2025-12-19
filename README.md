@@ -2,6 +2,7 @@
 
 # 🎬 Movie Hit Prediction
 ## A Data-Driven Framework for Greenlighting Decisions
+authors: Saad Iftikhar, Talal Naveed, Ahmed Arkam Mohamed Faisaar
 ---
 
 ## Table of Contents
