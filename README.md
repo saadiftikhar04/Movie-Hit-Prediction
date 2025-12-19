@@ -16,6 +16,7 @@
 - [Key Findings](#key-findings)
 - [Modeling Approach](#modeling-approach)
 - [Evaluation and Results](#evaluation-and-results)
+- [Streamlit Implementation](#streamlit-implementation)
 - [Business Applications](#business-applications)
 - [How to Reproduce](#how-to-reproduce)
 - [Repository Structure](#repository-structure)
