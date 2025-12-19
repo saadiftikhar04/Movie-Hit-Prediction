@@ -306,7 +306,12 @@ We evaluate regression using:
 | Revenue regressor | Expected revenue | XGBoost Regressor | MAE: $65.4M, R²: 0.858 |
 
 ---
+## Streamlit Implementation
 
+Implemented an interactive Streamlit-based system that predicts whether a movie project should be greenlit based on historical data and machine learning.
+<img width="2226" height="1204" alt="image" src="https://github.com/user-attachments/assets/3be11089-b47f-4aff-9aee-aa47d9bb49cd" />
+
+---
 ## Business Applications
 This system is not an automatic greenlight machine. It is best used as structured input to decision-making.
 
